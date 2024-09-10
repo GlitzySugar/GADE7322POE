@@ -17,17 +17,20 @@ public class BuildManager : MonoBehaviour
 
     public GameObject standardTurretPrefab;
 
-    private void Start()
+
+
+    private TurretBP turretToBuild;
+
+    public bool CanBuild { get { return turretToBuild != null; } }
+
+    public void BuildTurretOn(Node node)
     {
-        turretToBuild = standardTurretPrefab;
+
+        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret;
     }
-
-    private GameObject turretToBuild;
-
-    public GameObject GetTurretToBuild()
+    public void SelectTurretToBuild(TurretBP turret)
     {
-        return turretToBuild;
-    }   
-   
-
+        turretToBuild = turret;
+    }
 }

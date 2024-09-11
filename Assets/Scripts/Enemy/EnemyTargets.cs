@@ -17,6 +17,8 @@ public class EnemyTargets : MonoBehaviour
     private float fireCountDown = 0f;
 
     [Header("Enemy Logic")]
+    private Renderer rend;
+    private Color startColor;
     public GameObject EnemyBullet;
     private bool isDead = false;
     private Transform target;
@@ -32,6 +34,8 @@ public class EnemyTargets : MonoBehaviour
 
     private void Start()
     {
+        rend = GetComponent<Renderer>();
+        startColor = rend.material.color;
         health = startHealth;
         InvokeRepeating("UpdateTarget", 0, 0.5f);
         InvokeRepeating("UpdateTowerTarget", 0, 0.5f);

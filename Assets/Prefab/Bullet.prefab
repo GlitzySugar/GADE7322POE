@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8937291916180115411}
   - component: {fileID: 853774306364276437}
   - component: {fileID: -276006990387557760}
+  - component: {fileID: -4640758722187897044}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,5 +97,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618e870f7c368bb48a2399c4a47d615a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 45
   speed: 5
-  impactEffect: {fileID: 491848856763484571, guid: e647a770b2e590e409f8b667d49e9530, type: 3}
+--- !u!135 &-4640758722187897044
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9069296234711101265}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.49999997
+  m_Center: {x: 0, y: 0, z: 0}

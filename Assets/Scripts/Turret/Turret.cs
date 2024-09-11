@@ -1,36 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    [Header("Turret Stats")]
     public float range = 3f;
-    public Transform partToRotate;
     public float turretspeed = 5f;
-   
+    private float health;
+    public float startHealth;
+    public float fireRate = 100f;
+    private float fireCountDown = 0f;
 
-    private string enemyTag = "Enemy";
-
-    public float fireRate = 1f;
-    private float fireCountDown = 0;
+    [Header("Turret Logic")]
+    private Transform target;
+    public Transform partToRotate;
     public GameObject bulletPrefab;
     public Transform firePoint;
+    [SerializeField] private GameObject impactEffect;
+    private bool isDead = false;
+    private string enemyTag = "Enemy";
 
+    [Header("Turret UI")]
+   public Image healthBar;  
+   
     // Start is called before the first frame update
     void Start()
     {
+        health = startHealth;
         InvokeRepeating("UpdateTarget", 0, 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //returns if there is no enemy and continues if one is there
         if (target == null)
             return;
         
+        //Calcutaling the distance between the turret and the enemy
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
+        //rotating the turret so it face s the enemy
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation,lookRotation, Time.deltaTime * turretspeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
@@ -43,6 +56,31 @@ public class Turret : MonoBehaviour
         fireCountDown -= Time.deltaTime;
     }
 
+    //takes damage and calls and kills turret if hp is 0
+    public void TakeDamage(float amount)
+    {
+        health = health - amount;
+        //updates the turrets hp ui when it is damaged
+        healthBar.fillAmount = health / startHealth;
+        Debug.Log(health);
+        //kills turret if it was alive and hp is 0
+        if (health <= 0 && isDead == false)
+        {
+            Die();
+        }
+    }
+
+    //Logic behind killing the turret
+    private void Die()
+    {
+        //instantiates particle effects on death of turret
+        GameObject effectInsatance = Instantiate(impactEffect, this.gameObject.transform.position, transform.rotation);
+        Destroy(effectInsatance, 2f);
+        isDead = true;
+        
+        Destroy(gameObject);
+    }
+
     void Shoot()
     {
         GameObject bulletObj = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
@@ -53,6 +91,8 @@ public class Turret : MonoBehaviour
             bullet.Seek(target);
         }
     }
+    
+   //updates  which enemy is in range and nearest
     private void UpdateTarget()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
@@ -79,7 +119,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-
+    //displays targeting range of turret in scene 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Path
 {
+    //stores the game object of the each path of the 3 paths
     private List<GameObject> path = new List<GameObject>();
     private List<GameObject> path2 = new List<GameObject>();
     private List<GameObject> path3 = new List<GameObject>();
 
+    //stores the game objects of each node at the oustide of the grid  
     private List<GameObject> topTiles = new List<GameObject>();
     private List<GameObject> bottomTiles = new List<GameObject>();
+
+    //stores the game objects of the  node at the centre of the grid  
     private List<GameObject> middleTiles = new List<GameObject>();
 
     private List<GameObject> turretPlacablesPath1 = new List<GameObject>();
@@ -16,6 +20,7 @@ public class Path
     private List<GameObject> leftTiles = new List<GameObject>();
     private List<GameObject> rightTiles = new List<GameObject>();
 
+    //stores the game objects of each spawning node at the oustide of the grid 
     private List<GameObject> startingTilesList = new List<GameObject>();
 
     private int radius, currentTileIndex;
@@ -32,6 +37,8 @@ public class Path
     {
         this.radius = worldRadius;
     }
+
+    //places the nodes at the top column and bottom clolumn of the grid in their respective lists
     public void AssignTopAndBottomTiles(int z,int x, GameObject tile)
     {
         if (z == 0)
@@ -43,6 +50,7 @@ public class Path
         Debug.Log("Added Tile");
     }
 
+    //places the nodes at the left column and right clolumn of the grid in their respective lists
     public void AssignLeftAndRightTiles(int x, GameObject tile)
     {
         if (x == 0) 
@@ -54,13 +62,14 @@ public class Path
 
     private bool AssignAndCheckStartingAndEndingTile()
     {
+        //randomises and selects a point ate the egdes of the grid 
         var xIndex = Random.Range(0, topTiles.Count - 1);
         var xIndex2 = Random.Range(0, leftTiles.Count-1);
         var xIndex3 = Random.Range(0, rightTiles.Count);
 
         var zIndex = Random.Range(0, bottomTiles.Count);
 
-
+        //assigning those point to the respective lists 
         startingTile = topTiles[xIndex];
         startingTile2 = leftTiles[xIndex2];
         startingTile3 = rightTiles[xIndex3];
@@ -81,10 +90,7 @@ public class Path
             GameObject currentTile2 = startingTile2;
             GameObject currentTile3 = startingTile3;
 
-            //for (int i = 0; i < 3; i++)
-            //    MoveLeft(ref currentTile); MoveUp2(ref currentTile2); MoveDown3(ref currentTile3);
-
-
+            //while loop used to generate the path to the nexus tower 
             var safteyBreakX = 0;
             while (!hasReachedX)
             {
@@ -174,6 +180,8 @@ public class Path
             path.Add(endingTile);
         }
     }
+
+    //methods used for directing the and storing the current nodes to the nexus tower 
     private void MoveDown(ref GameObject currentTile)
     {
         path.Add(currentTile);

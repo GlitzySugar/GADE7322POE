@@ -19,12 +19,16 @@ public class WorldGeneration : MonoBehaviour
     void Start()
     {
         Path pathGenerator = new Path(radius);
-        //GameObject floor = Instantiate(ground, new Vector3(-100, 1.7f, -100), Quaternion.identity);
+       
+        //create a grid of a certain radias that will act as our map 
         for (int x = 0; x < radius; x++)
         {
             for(int z = 0; z < radius; z++)
             {
+                //instantiates the barrier around the map 
                 GameObject bar = Instantiate(barrier);
+
+                //instantiates the map with node prefabs
                 GameObject tile = Instantiate(tilePrefab,
                     new Vector3(x * gridOffset, 1.8f /*GenerateNoise(x, z, 8f) * noiseHeight*/, z  * gridOffset),
                     Quaternion.identity);
@@ -40,6 +44,7 @@ public class WorldGeneration : MonoBehaviour
         //World Generated
         pathGenerator.GeneratePath();
        
+        //intantiates the path locations with pathprefabs
         foreach(var pObject in pathGenerator.GetGeneratedPath)
         {
             float x = pObject.transform.position.x;
@@ -79,6 +84,8 @@ public class WorldGeneration : MonoBehaviour
         }
         GetComponent<NavMeshSurface>().BuildNavMesh();
     }
+
+    //Generates map height (not used cause it looks messy and confuses players)
     private float GenerateNoise(int x, int z, float detailScale)
     {
         float xNoise = (x + this.transform.position.x) / detailScale;

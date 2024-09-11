@@ -15,17 +15,21 @@ public class EnemySpawn : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        //initially spawns the enenmy at the begining of the game 
         SpawnEnemy();
+        //spawns the enemy in intervals 
         StartCoroutine(Spawn());
     }
     //instantiates the enemy
     void SpawnEnemy()
     {
+
         float x, y, z;
         x = spawnPoint.position.x;
         y = spawnPoint.position.y;
         z = spawnPoint.position.z;
 
+    //spawns the enmy on the starting node 
         GameObject enemyObj = Instantiate(enemy, new Vector3(x, y, z), Quaternion.identity);
 
     }
@@ -34,7 +38,7 @@ public class EnemySpawn : MonoBehaviour
     {
         while (SpawnE == true)
         {
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(10f);
             SpawnEnemy();
         }
        

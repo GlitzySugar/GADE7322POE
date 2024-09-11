@@ -12,12 +12,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
        enemy =  GetComponent<NavMeshAgent>();
+        // sets the navmesh agent destination to where the nexus tower is 
        enemy.destination = new Vector3(14.4f, 1.5f, 14.4f);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

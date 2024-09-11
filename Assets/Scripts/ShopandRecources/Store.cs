@@ -10,6 +10,7 @@ public class Store : MonoBehaviour
     {
         buildManager = BuildManager.instance;
     }
+    //selecting the turret from the store panel in the canvas
     public void SelectStandardTurret()
     {
         Debug.Log("Standard Turret Purchased");

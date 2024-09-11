@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject youWinPanel;
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject store;
     [SerializeField] GameObject moneyCount;
@@ -11,7 +12,11 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
+        EnemyTargets.score = 0;
+        Time.timeScale = 1;
         store.SetActive(true); moneyCount.SetActive(true);
+        youWinPanel.SetActive(false);
+        pauseMenu.SetActive(false);
         gameOverPanel.SetActive(false);
     }
     private void Update()
@@ -19,6 +24,10 @@ public class GameOver : MonoBehaviour
         if (Tower.gameIsOver)
         {
            GameIsOver();
+        }
+        if (EnemyTargets.score >= 25)
+        {
+            YouWin();
         }
     }
 
@@ -31,8 +40,20 @@ public class GameOver : MonoBehaviour
         Debug.Log("Game Over");
         Time.timeScale = 0.0f;
     }
+    public void YouWin()
+    {
+        youWinPanel.SetActive(true);
+        store.SetActive(false);
+        moneyCount.SetActive(false);
+        Debug.Log("You Win");
+        Time.timeScale = 0.0f;
+    }
     public void Restart()
     {
+        youWinPanel.SetActive(false);
+        pauseMenu.SetActive(false);
+        store.SetActive(true);
+        moneyCount.SetActive(true);
         Tower.gameIsOver = false;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);

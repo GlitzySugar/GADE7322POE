@@ -13,6 +13,7 @@ public class EnemyTargets : MonoBehaviour
     public float range = 3f;
     public float enemyShootingspeed = 5f;
     public float fireRate = 100f;
+    public static float score;
     private float fireCountDown = 0f;
 
     [Header("Enemy Logic")]
@@ -76,6 +77,7 @@ public class EnemyTargets : MonoBehaviour
         GameObject effectInsatance = Instantiate(impactEffect, this.gameObject.transform.position, transform.rotation);
         Destroy(effectInsatance, 2f);
         isDead = true;
+        score += 1;
         Currency.money += worth;
         Destroy( gameObject );
     }

@@ -1,19 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
-    public GameObject gameOverPanel;
-    public GameObject nexusTurret;
+    [SerializeField] GameObject gameOverPanel;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject store;
+    [SerializeField] GameObject moneyCount;
+    Tower Tower;
     private string turretTag = "NexusTowerShooting";
-    public static bool gameOver;
 
     private void Start()
     {
-        nexusTurret = GameObject.Find(turretTag);
-        gameOverPanel.active = false;
+        store.SetActive(true); moneyCount.SetActive(true);
+        gameOverPanel.SetActive(false);
     }
     private void Update()
     {
-        if (nexusTurret == null)
+        if (Tower.gameIsOver)
         {
            GameIsOver();
         }
@@ -22,9 +25,29 @@ public class GameOver : MonoBehaviour
     //Called when the nexuxs health is 0
     public void GameIsOver()
     {
-        gameOver = true;
-        gameOverPanel.active = true;
+        gameOverPanel.SetActive(true);
+        store.SetActive(false);
+        moneyCount.SetActive(false);
         Debug.Log("Game Over");
         Time.timeScale = 0.0f;
+    }
+    public void Restart()
+    {
+        Tower.gameIsOver = false;
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
+    public void Pause()
+    {
+        pauseMenu.SetActive(true);
+        store.SetActive(false);
+        moneyCount.SetActive(false);
+        Time.timeScale = 0.0f;
+    }
+    public void Resume()
+    {
+        store.SetActive(true); moneyCount.SetActive(true);
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
     }
 }

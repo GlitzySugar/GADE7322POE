@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tower : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Tower : MonoBehaviour
     public float startHealth;
     public float fireRate = 100f;
     private float fireCountDown = 0f;
+    public static bool gameIsOver = false;
 
     [Header("Turret Logic")]
     private Transform target;
@@ -25,6 +27,7 @@ public class Tower : MonoBehaviour
 
     [Header("Turret UI")]
     public Image healthBar;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,8 +76,11 @@ public class Tower : MonoBehaviour
     //Logic behind killing the turret
     private void Die()
     {
+
         Debug.Log("Game Over");
         Time.timeScale = 0.0f;
+        Currency.money = 0;
+        gameIsOver = true;
         isDead = true;
 
         Destroy(gameObject);

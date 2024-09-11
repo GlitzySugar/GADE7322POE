@@ -478,6 +478,7 @@ MonoBehaviour:
   turretspeed: 1
   startHealth: 100
   fireRate: 1
+  gameOverPanel: {fileID: 284883514982262991, guid: 27dfce8719c31ee44a0e104d5d29be98, type: 3}
   partToRotate: {fileID: 8236441056793860391}
   bulletPrefab: {fileID: 9069296234711101265, guid: b268b66e3b6fd7f44afd7e993b3ea169, type: 3}
   firePoint: {fileID: 821099530861338097}

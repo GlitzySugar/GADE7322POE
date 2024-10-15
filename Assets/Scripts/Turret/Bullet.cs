@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float slowSpeed;
+   [SerializeField] public bool isSlowing; 
     public float damage;
     private Transform target;
     public float speed = 5f;
-
+    public float explosionRadius = 0;
 
     public void Seek(Transform _target)
     {
@@ -36,11 +38,55 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        TurretDamage(target);
-        EnemyDamage(target);
-        TowerDamage(target);
-       Destroy(gameObject);
+        if(explosionRadius > 0)
+        {
+            Explode();
+        }
+        if (isSlowing)
+        {
+            Slow();
+        }
+        else
+        {
+            TurretDamage(target);
+            EnemyDamage(target);
+            TowerDamage(target);
+            Destroy(gameObject);
+        }
+        
        
+    }
+    void Explode()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach(Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                EnemyDamage(collider.transform);
+                Destroy(gameObject);
+            }
+        }
+    }
+    void Slow()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.tag == "Enemy")
+            {
+                EnemySlow(collider.transform);
+                Destroy(gameObject);
+            }
+        }
+    }
+    void EnemySlow(Transform enemy)
+    {
+        EnemyTargets e = enemy.GetComponent<EnemyTargets>();
+        if (e != null)
+        {
+            e.TakeSlow(slowSpeed);
+        }
     }
     //getting the Tranform of the enemy shot  
     void EnemyDamage(Transform enemy)

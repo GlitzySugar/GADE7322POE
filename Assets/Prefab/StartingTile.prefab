@@ -150,5 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6da369df6351d479c3c1a1071cab57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7137065389253254383, guid: b73a0362deb6a0144a08f15e2189c85d, type: 3}
+  enemy:
+  - {fileID: 0}
+  - {fileID: 7137065389253254383, guid: 44292db682242b04381cfd13103d843d, type: 3}
+  - {fileID: 7137065389253254383, guid: 38554b7661cc8b64e914b1d9236441fc, type: 3}
   spawnPoint: {fileID: 8495529131348866250}

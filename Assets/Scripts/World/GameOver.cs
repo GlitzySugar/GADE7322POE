@@ -13,6 +13,7 @@ public class GameOver : MonoBehaviour
     private void Start()
     {
         EnemyTargets.score = 0;
+        EnemySpawn.spawnScore = 0;
         Time.timeScale = 1;
         store.SetActive(true); moneyCount.SetActive(true);
         youWinPanel.SetActive(false);
@@ -25,7 +26,7 @@ public class GameOver : MonoBehaviour
         {
            GameIsOver();
         }
-        if (EnemyTargets.score >= 25)
+        if (EnemyTargets.score >= 75)
         {
             YouWin();
         }
@@ -55,6 +56,7 @@ public class GameOver : MonoBehaviour
         store.SetActive(true);
         moneyCount.SetActive(true);
         Tower.gameIsOver = false;
+        EnemySpawn.spawnScore = 0;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(0);
     }

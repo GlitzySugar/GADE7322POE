@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemyTargets : MonoBehaviour
 {
+    public NavMeshAgent navMeshAgent;
     [Header("Enemy Stats")]
+
     private float health;
     private float startHealth = 100f;
     private int worth = 50;
     public float range = 3f;
+    public int enemyCost;
     public float enemyShootingspeed = 5f;
     public float fireRate = 100f;
     public static float score;
@@ -74,6 +78,10 @@ public class EnemyTargets : MonoBehaviour
             Die();
         }
     }
+    public void TakeSlow(float amount )
+    {
+        navMeshAgent.speed = amount;
+    }
 
     //Logic behind killing the enemy
     private void Die()
@@ -83,6 +91,7 @@ public class EnemyTargets : MonoBehaviour
         isDead = true;
         score += 1;
         Currency.money += worth;
+        EnemySpawn.spawnScore += 1;
         Destroy( gameObject );
     }
 

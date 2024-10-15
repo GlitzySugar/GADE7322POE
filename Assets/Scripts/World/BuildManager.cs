@@ -37,6 +37,7 @@ public class BuildManager : MonoBehaviour
         Currency.money -= turretToBuild.cost;
         GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turret;
+        EnemySpawn.spawnScore += 1;
         Debug.Log("Built! Money Left" + Currency.money);
     }
     public void SelectTurretToBuild(TurretBP turret)

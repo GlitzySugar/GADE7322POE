@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
 
     [Header("Turret Logic")]
     private Transform target;
+    public bool firstHit = false;
     public Transform partToRotate;
     public GameObject bulletPrefab;
     public Transform firePoint;
@@ -59,6 +60,7 @@ public class Turret : MonoBehaviour
     //takes damage and calls and kills turret if hp is 0
     public void TakeDamage(float amount)
     {
+        firstHit = true;
         health = health - amount;
         //updates the turrets hp ui when it is damaged
         healthBar.fillAmount = health / startHealth;
@@ -67,6 +69,17 @@ public class Turret : MonoBehaviour
         if (health <= 0 && isDead == false)
         {
             Die();
+        }
+    }
+    public void SecondHitDamage(float amount)
+    {
+        if (!firstHit)
+        {
+            TakeDamage(amount);
+        }
+        else
+        {
+
         }
     }
 

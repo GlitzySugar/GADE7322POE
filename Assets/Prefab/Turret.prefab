@@ -663,12 +663,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d9ffcaf829c69409379394f8b2cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 6
+  range: 4
   turretspeed: 1
-  startHealth: 100
+  startHealth: 1000
   fireRate: 1
+  firstHit: 0
   partToRotate: {fileID: 8236441056793860391}
-  bulletPrefab: {fileID: 9069296234711101265, guid: 2d610907473553f40a30b4a3adfc6b7b, type: 3}
+  bulletPrefab: {fileID: 9069296234711101265, guid: 3843730824f0f9247bc6799e122239ab, type: 3}
   firePoint: {fileID: 821099530861338097}
   impactEffect: {fileID: 491848856763484571, guid: e647a770b2e590e409f8b667d49e9530, type: 3}
   healthBar: {fileID: 3434570982697132267}

@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 430794329399699975}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5100001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 40, y: -40, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.02, y: 2.79}
+  m_AnchoredPosition: {x: -0.02, y: 3.44}
   m_SizeDelta: {x: 1, y: 0.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8272889839055593973
@@ -465,7 +465,7 @@ Transform:
   m_GameObject: {fileID: 6776075787707610532}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.72, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3700001, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -665,11 +665,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 4
   turretspeed: 1
-  startHealth: 1000
+  startHealth: 750
   fireRate: 1
   firstHit: 0
   partToRotate: {fileID: 8236441056793860391}
-  bulletPrefab: {fileID: 9069296234711101265, guid: 3843730824f0f9247bc6799e122239ab, type: 3}
+  bulletPrefab: {fileID: 9069296234711101265, guid: 2d610907473553f40a30b4a3adfc6b7b, type: 3}
   firePoint: {fileID: 821099530861338097}
   impactEffect: {fileID: 491848856763484571, guid: e647a770b2e590e409f8b667d49e9530, type: 3}
   healthBar: {fileID: 3434570982697132267}

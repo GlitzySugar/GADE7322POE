@@ -5,6 +5,8 @@ using UnityEngine;
 public class Store : MonoBehaviour
 {
     public TurretBP standardTurret;
+    public TurretBP aoeDamageTurret;
+    public TurretBP aoeSlowTurret;
     BuildManager buildManager;
     private void Start()
     {
@@ -15,5 +17,15 @@ public class Store : MonoBehaviour
     {
         Debug.Log("Standard Turret Purchased");
         buildManager.SelectTurretToBuild(standardTurret);
+    }
+    public void SelectAOEDamageTurret()
+    {
+        Debug.Log("Aoe Damage Turret Purchased");
+        buildManager.SelectTurretToBuild(aoeDamageTurret);
+    }
+    public void AOESlowTurret()
+    {
+        Debug.Log("Aoe Slow Turret Purchased");
+        buildManager.SelectTurretToBuild(aoeSlowTurret);
     }
 }

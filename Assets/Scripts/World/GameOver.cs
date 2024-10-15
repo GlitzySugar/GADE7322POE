@@ -26,7 +26,7 @@ public class GameOver : MonoBehaviour
         {
            GameIsOver();
         }
-        if (EnemyTargets.score >= 25)
+        if (EnemyTargets.score >= 75)
         {
             YouWin();
         }

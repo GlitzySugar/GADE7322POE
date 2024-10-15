@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowSpeed: 1
-  isSlowing: 1
-  damage: 20
+  isSlowing: 0
+  damage: 15
   speed: 10
   explosionRadius: 5
 --- !u!135 &-4640758722187897044

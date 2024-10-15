@@ -89,7 +89,7 @@ public class EnemySpawn : MonoBehaviour
         {
             if (waveCount < 2)
             {
-                yield return new WaitForSeconds(10f);
+                yield return new WaitForSeconds(20f);
                 SpawnEnemy();
                 waveCount++;
             }
@@ -101,7 +101,7 @@ public class EnemySpawn : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSeconds(5f);
+                yield return new WaitForSeconds(10f);
                 SpawnEnemy();
                 waveCount++;
             }

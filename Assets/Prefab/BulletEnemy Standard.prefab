@@ -101,7 +101,7 @@ MonoBehaviour:
   isSlowing: 0
   damage: 10
   speed: 5
-  explosionRadius: 2
+  explosionRadius: 0
 --- !u!135 &-4640758722187897044
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -21,6 +21,9 @@ public class BuildManager : MonoBehaviour
 
 
     private TurretBP turretToBuild;
+    private Node selectedNode;
+
+    public NodeUI nodeUI;
 
     //parameter for checking if a node can have a turrret placed on it
     public bool CanBuild { get { return turretToBuild != null; } }
@@ -29,19 +32,45 @@ public class BuildManager : MonoBehaviour
     public bool hasMoney { get { return Currency.money >= turretToBuild.cost; } }
 
     //Subtracts the cost of the turret and builds the selected turret on the selected node 
-    public void BuildTurretOn(Node node)
+    //public void BuildTurretOn(Node node)
+    //{
+    //    if(Currency.money < turretToBuild.cost) {
+    //        Debug.Log("No money dog. Get ur bread up");
+    //        return; }
+    //    Currency.money -= turretToBuild.cost;
+    //    GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+    //    node.turret = turret;
+    //    EnemySpawn.spawnScore += 1;
+    //    Debug.Log("Built! Money Left" + Currency.money);
+    //}
+
+    public void SelectNode(Node node)
     {
-        if(Currency.money < turretToBuild.cost) {
-            Debug.Log("No money dog. Get ur bread up");
-            return; }
-        Currency.money -= turretToBuild.cost;
-        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turret;
-        EnemySpawn.spawnScore += 1;
-        Debug.Log("Built! Money Left" + Currency.money);
+        if (selectedNode == node)
+        {
+            DeselectNode();
+            return;
+        }
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
     }
     public void SelectTurretToBuild(TurretBP turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
+
+        nodeUI.Hide();
+    }
+    public void DeselectNode()
+    {
+        selectedNode = null;
+        nodeUI.Hide();
+    }
+
+    public TurretBP GetTurretToBuild()
+    {
+        return turretToBuild;
     }
 }

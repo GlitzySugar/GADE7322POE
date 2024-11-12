@@ -62,8 +62,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ShopandRecources\Currency.cs" />
     <Compile Include="Assets\Scripts\ShopandRecources\Store.cs" />
+    <Compile Include="Assets\FattyPolyTurretPart2Free\Scripts\WASDMovement.cs" />
     <Compile Include="Assets\Scripts\Turret\Turret.cs" />
     <Compile Include="Assets\Scripts\ShopandRecources\CurrencyUI.cs" />
+    <Compile Include="Assets\FattyPolyTurretPart2Free\Scripts\Projectile.cs" />
+    <Compile Include="Assets\FattyPolyTurretPart2Free\Scripts\TurretAI.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\World\Path.cs" />
     <Compile Include="Assets\Scripts\Turret\Tower.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Assets\Scripts\UI\UIMan.cs" />
     <Compile Include="Assets\Scripts\World\GameOver.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyTargets.cs" />
+    <Compile Include="Assets\NodeUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -92,6 +96,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\FattyPolyTurretFree\Readme.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

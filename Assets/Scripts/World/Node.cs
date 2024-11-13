@@ -129,6 +129,25 @@ public class Node : MonoBehaviour
         isUpgraded = true;
         Debug.Log("Upgraded! Money Left" + Currency.money);
     }
+    public void UpgradeTurret2()
+    {
+        if (Currency.money < turretBlueprint.upgradeCost2)
+        {
+            Debug.Log("No money to upgrade dog. Get ur bread up");
+            return;
+        }
+        Currency.money -= turretBlueprint.upgradeCost2;
+
+        //destroys old turrret
+        Destroy(turret);
+        //build new one
+        GameObject _turret = (GameObject)Instantiate(turretBlueprint.upgradedPrefab2, GetBuildPosition(), Quaternion.identity);
+        turret = _turret;
+        EnemySpawn.spawnScore += 1;
+
+        isUpgraded = true;
+        Debug.Log("Upgraded! Money Left" + Currency.money);
+    }
 
     //gets the position of the node 
     public Vector3 GetBuildPosition()

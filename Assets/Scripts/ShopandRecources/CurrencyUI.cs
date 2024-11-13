@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CurrencyUI : MonoBehaviour
 {
-    public Text currencyText;
-    public Text scoreTxt;
+    public TMP_Text currencyText;
+    public TMP_Text scoreTxt;
 
     // Update is called once per frame
     void Update()

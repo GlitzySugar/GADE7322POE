@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class Tower : MonoBehaviour
 {
@@ -21,6 +20,8 @@ public class Tower : MonoBehaviour
     public Transform partToRotate;
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public Transform firePoint2;
+    private bool leftFP;
     [SerializeField] private GameObject impactEffect;
     private bool isDead = false;
     private string enemyTag = "Enemy";
@@ -88,7 +89,18 @@ public class Tower : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletObj = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletObj;
+        if (leftFP == true)
+        {
+            bulletObj = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            leftFP = false;
+        }
+        else
+        {
+            bulletObj = (GameObject)Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+            leftFP = true;
+        }
+
         Bullet bullet = bulletObj.GetComponent<Bullet>();
 
         if (bullet != null)

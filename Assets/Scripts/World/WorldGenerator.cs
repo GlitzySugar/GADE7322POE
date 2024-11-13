@@ -8,6 +8,7 @@ public class WorldGeneration : MonoBehaviour
     public static List<GameObject> GeneratedTiles = new List<GameObject>();
 
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private GameObject nexusTower;
     [SerializeField] private GameObject barrier;
     [SerializeField] private GameObject tilePrefab2, tilePrefab3, tilePrefab4, startObj, endObj;
     //[SerializeField] private GameObject ground;
@@ -19,14 +20,18 @@ public class WorldGeneration : MonoBehaviour
     void Start()
     {
         Path pathGenerator = new Path(radius);
-       
+
+        //instantiates the barrier around the map 
+        GameObject bar = Instantiate(barrier);
+
+
+       GameObject _nexusTower = Instantiate(nexusTower, new Vector3(14.4f,1.8f,14.4f), Quaternion.identity);
         //create a grid of a certain radias that will act as our map 
         for (int x = 0; x < radius; x++)
         {
             for(int z = 0; z < radius; z++)
             {
-                //instantiates the barrier around the map 
-                GameObject bar = Instantiate(barrier);
+                
 
                 //instantiates the map with node prefabs
                 GameObject tile = Instantiate(tilePrefab,

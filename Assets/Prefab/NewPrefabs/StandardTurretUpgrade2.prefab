@@ -280,10 +280,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2d9ffcaf829c69409379394f8b2cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
+  range: 5
   turretspeed: 1.5
   startHealth: 700
-  fireRate: 2
+  fireRate: 1.5
   firstHit: 0
   partToRotate: {fileID: 4940591295711036}
   bulletPrefab: {fileID: 9069296234711101265, guid: 2d610907473553f40a30b4a3adfc6b7b, type: 3}

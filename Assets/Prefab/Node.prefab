@@ -119,3 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.4264151, g: 0.4264151, b: 0.4264151, a: 0}
+  turret: {fileID: 0}
+  turretBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+  isUpgraded: 0

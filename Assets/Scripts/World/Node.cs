@@ -66,8 +66,21 @@ public class Node : MonoBehaviour
         Currency.money -= bPrint .cost;
         GameObject _turret = (GameObject)Instantiate(bPrint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
+
+        turretBlueprint = bPrint;
+
         EnemySpawn.spawnScore += 1;
         Debug.Log("Built! Money Left" + Currency.money);
+    }
+
+    public void SellTurret()
+    {
+        Currency.money += turretBlueprint.GetSellAmount();
+
+        //spawn effext
+
+        Destroy(turret);
+        turretBlueprint = null;
     }
     // is called when  the mouse hovers over a node
      void OnMouseEnter()

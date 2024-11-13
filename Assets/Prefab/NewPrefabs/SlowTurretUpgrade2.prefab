@@ -5179,7 +5179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 6
   turretspeed: 1
-  startHealth: 450
+  startHealth: 850
   fireRate: 1
   firstHit: 0
   partToRotate: {fileID: 4722236510932744}

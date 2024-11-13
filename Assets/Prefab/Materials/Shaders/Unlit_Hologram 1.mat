@@ -29,8 +29,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0
-    - _GridLineThickness: 0.09
+    - _Alpha: 0.35
+    - _GridLineThickness: 0.156
     - _GridSize: 1
     - _Intensity: 5
     m_Colors:

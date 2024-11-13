@@ -118,8 +118,10 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Plugins/Demigiant/DOTween/DOTween.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed/UnityEngine/UnityEditor.DiagnosticsModule.dll"
@@ -332,6 +334,11 @@
 -r:"Library/PackageCache/com.unity.testtools.codecoverage@1.2.5/lib/ReportGenerator/ReportGeneratorMerged.dll"
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Analytics.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Assembly-CSharp-firstpass.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Autodesk.Fbx.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Autodesk.Fbx.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Purchasing.Common.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Tilemap.Editor.ref.dll"
@@ -340,9 +347,19 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.AI.Navigation.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.AI.Navigation.Updater.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Analytics.DataPrivacy.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Animation.Rigging.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Animation.Rigging.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Formats.Fbx.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Formats.Fbx.Runtime.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Analytics.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Services.Analytics.ref.dll"
@@ -385,7 +402,9 @@
 "Assets/FattyPolyTurretPart2Free/Scripts/Projectile.cs"
 "Assets/FattyPolyTurretPart2Free/Scripts/TurretAI.cs"
 "Assets/FattyPolyTurretPart2Free/Scripts/WASDMovement.cs"
+"Assets/IKFootSolver.cs"
 "Assets/NodeUI.cs"
+"Assets/Prefab/Materials/Shaders/PostProcess/PostProcessingEffect.cs"
 "Assets/Scripts/Enemy/EnemyFollow.cs"
 "Assets/Scripts/Enemy/EnemySpawn.cs"
 "Assets/Scripts/Enemy/EnemyTargets.cs"
@@ -402,6 +421,10 @@
 "Assets/Scripts/World/Node.cs"
 "Assets/Scripts/World/Path.cs"
 "Assets/Scripts/World/WorldGenerator.cs"
+"Assets/Unity/ConstraintSamples/Scripts/mParent.cs"
+"Assets/Unity/Info/Scripts/Readme.cs"
+"Assets/_Project/ExampleGameplay/Shared/ObjectPool/ObjectPoolBehaviour.cs"
+"Assets/_Project/ExampleGameplay/Shared/ObjectPool/ObjectPoolData.cs"
 -langversion:9.0
 
 /deterministic
